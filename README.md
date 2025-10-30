@@ -27,3 +27,12 @@ The project combines **data preprocessing**, **feature engineering**, **model co
 | **Property_Area_Semiurban** | Dummy variable                | 1 if property is in a semi-urban area                          | `0` → Not semi-urban                           |
 | **Property_Area_Urban**     | Dummy variable                | 1 if property is in an urban area                              | `1` → Urban                                    |
 | **Loan_Status**             | **Target variable**           | Whether loan was approved (0 = Rejected, 1 = Approved)         | `1` → Approved                                 |
+
+---
+
+### Accuracy in the algorithms used:
+| Algorithms                     | Accuracy | 
+| :------------------------- | :---------------: | 
+| **Decision Tree**               |       85%      | 
+| **Random Forest**    |        85.37%       | 
+| **XGBoost**       |        86.18%      | 
