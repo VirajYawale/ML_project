@@ -36,3 +36,20 @@ The project combines **data preprocessing**, **feature engineering**, **model co
 | **Decision Tree**               |       85%      | 
 | **Random Forest**    |        85.37%       | 
 | **XGBoost**       |        86.18%      | 
+
+---
+
+![Alt Text](images/1.png)
+![Alt Text](images/2.png)
+![Alt Text](images/3.png)
+
+
+---
+
+Conclusion
+
+This project demonstrates how machine learning can automate loan approval decisions effectively.
+By analyzing applicant information and financial parameters, the model provides accurate, explainable, and fair predictions that can support banks and NBFCs in real-time decision-making.
+
+The Streamlit-based dashboard adds practical usability and user interaction, making it a complete end-to-end AI solution for loan prediction.
+
