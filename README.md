@@ -3,6 +3,8 @@
 ### **Objective** : Predict whether a loan application will be approved or not based on applicant and loan details.
 ### **Type** : Classification problem (binary: Approved / Not Approved).
 
+App link: https://ml-project-yedc.onrender.com
+
 ## 📘 Project Overview
 The **Loan Approval Prediction System** is a **machine learning-powered web application** designed to assist financial institutions in evaluating loan eligibility efficiently.  
 By analyzing key applicant attributes such as **income, dependents, education, property area, and credit history**, the system predicts whether a loan application is **approved or rejected**.
