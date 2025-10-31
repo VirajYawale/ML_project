@@ -13,22 +13,22 @@ MODEL_PATH = "xgboost_model.pkl"
 def load_model(model_path):
     """Safely load an XGBoost model using pickle or joblib."""
     if not os.path.exists(model_path):
-        st.error(f"❌ Model file not found: `{model_path}`")
+        st.error(f"Model file not found: `{model_path}`")
         st.stop()
 
     try:
         with open(model_path, "rb") as file:
             model = pickle.load(file)
-            st.success("✅ Model loaded successfully using Pickle.")
+            st.success("Model loaded successfully using Pickle.")
             return model
     except Exception as e1:
-        st.warning(f"⚠️ Pickle load failed: {e1}")
+        st.warning(f"Pickle load failed: {e1}")
         try:
             model = joblib.load(model_path)
-            st.success("✅ Model loaded successfully using Joblib.")
+            st.success("Model loaded successfully using Joblib.")
             return model
         except Exception as e2:
-            st.error(f"❌ Model loading failed with both Pickle and Joblib.\n\nError: {e2}")
+            st.error(f"Model loading failed with both Pickle and Joblib.\n\nError: {e2}")
             st.stop()
 
 model = load_model(MODEL_PATH)
@@ -73,15 +73,15 @@ Enter applicant details to see if their loan is likely to be **approved or rejec
 st.divider()
 
 with st.sidebar:
-    st.header("📘 About the App")
+    st.header("About the App")
     st.write("""
     This app uses a **Machine Learning (XGBoost)** model trained on real loan applicant data.
     It predicts whether a loan will be approved based on key financial and demographic features.
     """)
-    st.info("💡 Tip: Good credit history, high income, and semiurban properties improve approval odds!")
+    st.info("Tip: Good credit history, high income, and semiurban properties improve approval odds!")
 
 
-st.subheader("📝 Enter Applicant Details")
+st.subheader("Enter Applicant Details")
 
 col1, col2 = st.columns(2)
 
@@ -131,9 +131,9 @@ input_df = pd.DataFrame([input_data])
 
 
 st.divider()
-st.subheader("🔍 Prediction Result")
+st.subheader("Prediction Result")
 
-if st.button("🚀 Predict Loan Status"):
+if st.button("Predict Loan Status"):
     with st.spinner("Analyzing your application..."):
         time.sleep(1.2)
         try:
@@ -141,13 +141,13 @@ if st.button("🚀 Predict Loan Status"):
             confidence = model.predict_proba(input_df)[0][prediction] * 100
 
             if prediction == 1:
-                st.success(f"🎉 Loan Approved! ✅ (Confidence: {confidence:.2f}%)")
+                st.success(f"Loan Approved! (Confidence: {confidence:.2f}%)")
                 st.markdown("""
                 💡 **Insight:**  
                 Approval likely due to a strong credit history or solid repayment ability.
                 """)
             else:
-                st.error(f"🚫 Loan Rejected (Confidence: {confidence:.2f}%)")
+                st.error(f"Loan Rejected (Confidence: {confidence:.2f}%)")
                 st.markdown("""
                 ⚠️ **Possible Factors:**  
                 - Low or missing credit history  
@@ -159,19 +159,19 @@ if st.button("🚀 Predict Loan Status"):
                 st.dataframe(input_df)
 
         except Exception as e:
-            st.error(f"⚠️ Prediction Error: {e}")
+            st.error(f"Prediction Error: {e}")
             st.info("Ensure input features match the model's training data structure.")
 
 
 st.divider()
-st.subheader("📈 Loan Approval Tips")
+st.subheader("Loan Approval Tips")
 st.markdown("""
-✅ **Approval Factors:**  
+**Approval Factors:**  
 - Good **credit history (1.0)** significantly increases chances.  
 - **Semiurban properties** show the highest approval rates.  
 - Balanced **income-to-loan ratio** improves eligibility.  
 - **Fewer dependents** may indicate better repayment potential.  
 
-💡 **Try This:**  
+**Try This:**  
 Adjust the loan amount or term and observe how it changes the approval outcome.
 """)
