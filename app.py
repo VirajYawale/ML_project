@@ -8,9 +8,6 @@ import joblib
 import time
 import os
 
-# ------------------------------------------------------------
-# 🎯 Load Trained XGBoost Model (with Safe Handling)
-# ------------------------------------------------------------
 MODEL_PATH = "xgboost_model.pkl"
 
 def load_model(model_path):
@@ -36,18 +33,14 @@ def load_model(model_path):
 
 model = load_model(MODEL_PATH)
 
-# ------------------------------------------------------------
-# 🧭 Page Configuration
-# ------------------------------------------------------------
+
 st.set_page_config(
     page_title="🏦 Smart Loan Approval Predictor",
     layout="wide",
     page_icon="💰"
 )
 
-# ------------------------------------------------------------
-# 🎨 Custom Styling
-# ------------------------------------------------------------
+
 st.markdown("""
     <style>
     .main {
@@ -71,9 +64,7 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# ------------------------------------------------------------
-# 🏠 Header Section
-# ------------------------------------------------------------
+
 st.title("💰 Loan Approval Prediction System")
 st.markdown("""
 Welcome to the **Smart Loan Approval Predictor** — powered by **XGBoost**.  
@@ -81,9 +72,6 @@ Enter applicant details to see if their loan is likely to be **approved or rejec
 """)
 st.divider()
 
-# ------------------------------------------------------------
-# 🎛️ Sidebar
-# ------------------------------------------------------------
 with st.sidebar:
     st.header("📘 About the App")
     st.write("""
@@ -92,9 +80,7 @@ with st.sidebar:
     """)
     st.info("💡 Tip: Good credit history, high income, and semiurban properties improve approval odds!")
 
-# ------------------------------------------------------------
-# 🧍 Input Section
-# ------------------------------------------------------------
+
 st.subheader("📝 Enter Applicant Details")
 
 col1, col2 = st.columns(2)
@@ -114,9 +100,7 @@ with col2:
     Loan_Amount_Term = st.number_input("Loan Term (in months)", min_value=0, step=12)
     Credit_History = st.selectbox("Credit History (1=Good, 0=Bad)", (1.0, 0.0))
 
-# ------------------------------------------------------------
-# 🧮 Data Encoding
-# ------------------------------------------------------------
+
 gender_map = {"Male": 1, "Female": 0}
 married_map = {"Yes": 1, "No": 0}
 education_map = {"Graduate": 1, "Not Graduate": 0}
@@ -145,9 +129,7 @@ input_data = {
 
 input_df = pd.DataFrame([input_data])
 
-# ------------------------------------------------------------
-# 🔮 Prediction Section
-# ------------------------------------------------------------
+
 st.divider()
 st.subheader("🔍 Prediction Result")
 
@@ -180,9 +162,7 @@ if st.button("🚀 Predict Loan Status"):
             st.error(f"⚠️ Prediction Error: {e}")
             st.info("Ensure input features match the model's training data structure.")
 
-# ------------------------------------------------------------
-# 📊 Insights
-# ------------------------------------------------------------
+
 st.divider()
 st.subheader("📈 Loan Approval Tips")
 st.markdown("""
