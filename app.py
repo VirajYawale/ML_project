@@ -143,13 +143,13 @@ if st.button("Predict Loan Status"):
             if prediction == 1:
                 st.success(f"Loan Approved! (Confidence: {confidence:.2f}%)")
                 st.markdown("""
-                💡 **Insight:**  
+                **Insight:**  
                 Approval likely due to a strong credit history or solid repayment ability.
                 """)
             else:
                 st.error(f"Loan Rejected (Confidence: {confidence:.2f}%)")
                 st.markdown("""
-                ⚠️ **Possible Factors:**  
+                **Possible Factors:**  
                 - Low or missing credit history  
                 - High loan-to-income ratio  
                 - Property area or dependent count affecting eligibility
